@@ -9,7 +9,7 @@ HIK_VideoCapture::HIK_VideoCapture(void){
 int HIK_VideoCapture::Init_Video(void){
     // 获取设备列表
     nRet = MV_CC_EnumDevices(MV_GIGE_DEVICE | MV_USB_DEVICE, &stDeviceList);
-    if (nRet != MV_OK)return -1; // *MV_CC_EnumDevices failed
+    if (nRet != MV_OK)return -1; // 获取设备列表失败 *MV_CC_EnumDevices failed
     if (stDeviceList.nDeviceNum == 0)return -2;// 无设备 *No devices found
 
     // 创建相机句柄
