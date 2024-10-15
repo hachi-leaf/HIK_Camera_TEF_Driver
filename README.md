@@ -57,13 +57,13 @@ cdef class HIK_Video:
 ### 初始化并启动相机`Init_Video()`
 该方法调用`C++`类`HIK_VideoCapture()`的`Init_Video()`方法并返回`HIK_VideoCapture()`的`nHeight`和`nWidth`成员，并转换为`python`的`int`类型返回。  
 - `<int>self.c_obj.Init_Video()`：错误码  
-`0`：无错误
-`-1`：获取设备列表失败
-`-2`：无设备连接
-`-3`：句柄创建失败
-`-4`：设备启动失败
-`-5`：Width获取失败
-`-6`：Height获取失败
+`0`：无错误  
+`-1`：获取设备列表失败  
+`-2`：无设备连接  
+`-3`：句柄创建失败  
+`-4`：设备启动失败  
+`-5`：Width获取失败  
+`-6`：Height获取失败  
 - `<int>self.c_obj.nHeight`：图像高度
 - `<int>self.c_obj.nWidth`：图像宽度
 ```python
@@ -91,9 +91,9 @@ cdef class HIK_Video:
 ### 获取图像`get_image(self)`
 使用该方法前务必保证`Photograph(timeout = 1000)`方法至少被调用过一次，该方法会调用`C++`类`HIK_VideoCapture()`的`Photograph_join()`方法等待并关闭后台拍摄线程。查询`C++`类`HIK_VideoCapture()`的`Photograph_ret`成员并将其转换为`python`的`int`类型并返回，并将数据已被新图像覆盖的`image`成员由`Bayer RG 8`转换为`RGB`格式的`opencv-python`图像一并返回。
 - `<int>self.c_obj.Photograph_ret`：错误码  
-`0`：无错误
-`-1`：获取错误
-`-2`：线程未结束
+`0`：无错误  
+`-1`：获取错误  
+`-2`：线程未结束  
 - cv2.cvtColor(self.image, cv2.COLOR_BayerRG2RGB)：`RGB`格式的`opencv-python`图像
 ```python
     def get_image(self):
