@@ -9,7 +9,7 @@
 - 使用前需要在MVS上位机软件中调试好相机的曝光时间、数字补偿、模拟补偿、亮度等参数，将相机的像素格式调整为`Bayer RG 8`（其他型号相机同理），欲使用其他像素格式需要自行修改项目，调整完成后设置为启动默认参数。
 ### 编译`Python`可用的链接共享库
 进入目录`HIK_TEF_Driver_module`，键入`sudo python3 setup.py build_ext --inplace`进行编译，若弹出有关`Numpy API`的警告可忽略，终端输出绿色字样`Setup has been completed!`即表示编译成功，此时目录`HIK_TEF_Driver_module`下会生成编译文件`__HIK_TEF_Driver__.cpp`、链接共享库文件`HIK_TEF_Driver.cpython-310-aarch64-linux-gnu.so`和`build`目录。  
-在项目目录下的python脚本中，可以以下语句引入相机驱动库。  
+在项目目录下的python脚本中，可以使用语句引入相机驱动库。  
 ```python
 from HIK_TEF_Driver_module import HIK_TEF_Driver
 ```
